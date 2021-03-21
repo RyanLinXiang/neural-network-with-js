@@ -10,9 +10,12 @@ This web app can be used to train and test the neural network with the MNIST dat
 
 ## Getting Started
 ### Installing
-Due to their size, the MNIST data sets are not included in this repository. You will need the CSV versions. Please download them from [pjreddie](https://pjreddie.com/projects/mnist-in-csv/).
+Due to their size, the MNIST data sets are not included in this repository. You will need the CSV versions. Please download them from [pjreddie](https://pjreddie.com/projects/mnist-in-csv/) and put them into the ./mnist folder.
 
 ### Starting
 Please run the file index.html in a local webserver. Otherwise the file accesses won't work.
+
+### Bonus
+The file nn-with-stop.js is an advanced version of nn.js and includes a stop function to abort training/testing. If you want to use it, please embed it into index.html instead of nn.js.
 
 
