@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Neural Network with JavaScript</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="outer">
+      <div id="left">
+        <div class="buttonbar">
+          <button type="button" id="train">Train</button>
+          <button type="button" id="test">Test</button>
+          <button type="button" id="loadWeights">Load weights</button>
+        </div>
+        <div id="status"></div>
+        <div id="download"></div>
+      </div>
+      <div id="right">
+        <div id="playground">
+          <canvas id="canvas" width="150" height="150"></canvas>
+          <div id="prediction"></div>
+        </div>
+        <div class="buttonbar">
+          <button type="button" id="predict">Predict</button>
+          <button type="button" id="clear">Clear</button>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.2.0/math.min.js"
+      integrity="sha512-5ch7MAn3LJHCHL6ri6nmXAyaQRHfmug70F7IwEQ41rnNQSGAMVyZBPTTKlaptPnq/42RXbKb/lTHm+mCQc6lPg=="
+      crossorigin="anonymous"
+    ></script>
+    <script type="text/javascript">
+      const status = document.getElementById("status");
+      const download = document.getElementById("download");
+      const trainButton = document.getElementById("train");
+      const testButton = document.getElementById("test");
+      const loadWeightsButton = document.getElementById("loadWeights");
+      const predictButton = document.getElementById("predict");
+      const clearButton = document.getElementById("clear");
+      const canvas = document.getElementById("canvas");
+      const prediction = document.getElementById("prediction");
+
+      canvas.style.backgroundColor = "black";
+      const ctx = canvas.getContext("2d");
+    </script>
+    <script type="text/javascript" src="nn.js"></script>
+    <script type="text/javascript">
+      trainButton.addEventListener("click", train);
+      testButton.addEventListener("click", test);
+      loadWeightsButton.addEventListener("click", loadWeights);
+      predictButton.addEventListener("click", predict);
+
+      clearButton.addEventListener("click", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        prediction.innerHTML = "";
+      });
+
+      let start = false;
+
+      if (ctx) {
+        ctx.lineCap = "round";
+        ctx.lineWidth = 15;
+      }
+
+      const initial = (e) => {
+        start = true;
+        if (ctx) {
+          ctx.beginPath();
+          ctx.moveTo(
+            e.clientX - ctx.canvas.getBoundingClientRect().x,
+            e.clientY - ctx.canvas.getBoundingClientRect().y
+          );
+        }
+      };
+
+      const draw = (e) => {
+        if (start === true) {
+          if (ctx) {
+            ctx.lineTo(
+              e.clientX - ctx.canvas.getBoundingClientRect().x,
+              e.clientY - ctx.canvas.getBoundingClientRect().y
+            );
+            ctx.stroke();
+            ctx.strokeStyle = "white";
+          }
+        }
+      };
+
+      canvas.addEventListener("mousedown", initial);
+      canvas.addEventListener("mousemove", draw);
+      canvas.addEventListener("mouseup", () => {
+        start = false;
+      });
+    </script>
+  </body>
+</html>

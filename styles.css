@@ -1,0 +1,91 @@
+html {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-image: url(img/background.png);
+
+  background-size: cover;
+}
+
+body {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+  width: 8em;
+}
+
+#outer {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  align-items: center;
+}
+
+#left {
+  height: 350px;
+  width: 50%;
+}
+
+#right {
+  padding-left: 1em;
+  width: 50%;
+}
+
+#playground {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  margin-bottom: 0.5em;
+  justify-content: center;
+}
+
+#prediction {
+  border: 1px solid lightgrey;
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5em;
+}
+
+#download {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+#downloadLink {
+  color: blue;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+.buttonbar {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+#status {
+  width: 90%;
+  background-color: #eeeeee;
+  border-radius: 0.5em;
+  height: 250px;
+  overflow: scroll;
+  margin-top: 0.5em;
+  padding: 1em;
+  font-family: "Courier New", Courier, monospace;
+  display: flex;
+  flex-direction: column-reverse;
+}
