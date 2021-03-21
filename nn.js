@@ -180,7 +180,7 @@ window.onload = async () => {
 
   if (!trainCSV || !testCSV) {
     status.innerHTML +=
-      "Error loading train/test data set. Please check your file path!";
+      "Error loading train/test data set. Please check your file path! If you run this project locally, it needs to be on a local server.";
     return;
   }
 
