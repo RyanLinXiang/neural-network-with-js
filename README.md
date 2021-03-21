@@ -10,7 +10,7 @@ This web app can be used to train and test the neural network with the MNIST dat
 
 ## Getting Started
 ### Installing
-Due to the size, the MNIST data set is not included in this repository. Please download it from [pjreddie](https://pjreddie.com/projects/mnist-in-csv/).
+Due to their size, the MNIST data sets are not included in this repository. You will need the CSV versions. Please download them from [pjreddie](https://pjreddie.com/projects/mnist-in-csv/).
 
 ### Starting
 Please run the file index.html in a local webserver. Otherwise the file accesses won't work.
